@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvpn1evd1mhpf"]
 
-[ext_resource type="FontFile" uid="uid://jt0t2wrn0ajg" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="1_28flt"]
-[ext_resource type="Script" uid="uid://n6k2e6seh8hi" path="res://Scenes/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://n6k2e6seh8hi" path="res://Scenes/start_menu.gd" id="1_jgtwh"]
+[ext_resource type="FontFile" uid="uid://jt0t2wrn0ajg" path="res://Fonts/PixelifySans-VariableFont_wght.ttf" id="2_m6uer"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
 bg_color = Color(1, 1, 1, 1)
@@ -26,14 +26,14 @@ corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28flt"]
 
-[node name="Main Menu" type="Control"]
+[node name="Start Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_48xlc")
+script = ExtResource("1_jgtwh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -103,7 +103,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_fonts/font = ExtResource("2_m6uer")
 theme_override_font_sizes/font_size = 80
 text = "UWA Game Jam 2"
 horizontal_alignment = 1
