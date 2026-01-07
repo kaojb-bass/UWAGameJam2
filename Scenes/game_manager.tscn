@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5t1bm3xvhqfh"]
+
+[ext_resource type="Script" uid="uid://by5vvmuvx5pll" path="res://Scenes/game_manager.gd" id="1_oj352"]
+
+[node name="Game Manager" type="Node2D"]
+script = ExtResource("1_oj352")
+
+[node name="Run Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Run Timer" to="." method="_on_run_timer_timeout"]
