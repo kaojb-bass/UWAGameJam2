@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://d04dw73armee0"]
+
+[ext_resource type="Texture2D" uid="uid://lsdnmmqm5pis" path="res://Assets/npc walk.png" id="1_acqhf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0k6i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acqhf"]
+atlas = ExtResource("1_acqhf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxsvc"]
+atlas = ExtResource("1_acqhf")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6unj"]
+atlas = ExtResource("1_acqhf")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1ryf"]
+atlas = ExtResource("1_acqhf")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ig1v"]
+atlas = ExtResource("1_acqhf")
+region = Rect2(640, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6atyd"]
+atlas = ExtResource("1_acqhf")
+region = Rect2(800, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xkex"]
+atlas = ExtResource("1_acqhf")
+region = Rect2(960, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6nw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acqhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxsvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6unj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ryf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ig1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6atyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xkex")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="NPC" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_b0k6i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_a6nw3")
+autoplay = "default"
+frame_progress = 0.38098767
