@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var animated_sprite = $AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -7,7 +8,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _prsocess(delta: float) -> void:
 	pass
 
 @export var movement_speed : float = 500
@@ -17,14 +18,15 @@ func _physics_process(delta):
 	character_direction.x = Input.get_axis("Left", "Right")
 	character_direction.y = Input.get_axis("Up", "Down")
 	character_direction = character_direction.normalized()
-	#if character_direction.x > 0: %sprite.flip_h = false
-	#elif character_direction.x < 0: %sprite.flip_h = false
+	if character_direction.x > 0: animated_sprite.flip_h = false
+	elif character_direction.x < 0: animated_sprite.flip_h = true
 	
 	if character_direction:
 		velocity = character_direction * movement_speed
-		#walk animation
+		animated_sprite.play("run")
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, movement_speed)
+		animated_sprite.play("idle")
 		
 	move_and_slide()
 	

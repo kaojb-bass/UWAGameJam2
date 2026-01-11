@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbowebk7qq7gh"
-path="res://.godot/imported/first_tile_map-Sheet.png-7bd86be6f3c06f6ce8ff5dbd98d6f69c.ctex"
+uid="uid://cvsalm06ufcsr"
+path="res://.godot/imported/idle.png-f4d4ae5668b87a1c91dd66979f2564cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/first_tile_map-Sheet.png"
-dest_files=["res://.godot/imported/first_tile_map-Sheet.png-7bd86be6f3c06f6ce8ff5dbd98d6f69c.ctex"]
+source_file="res://Assets/idle.png"
+dest_files=["res://.godot/imported/idle.png-f4d4ae5668b87a1c91dd66979f2564cc.ctex"]
 
 [params]
 
