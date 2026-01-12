@@ -55,6 +55,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		# Calculates reverse direction from collision
 		stun_direction = -(body.global_position - global_position).normalized()
 		stun()
+	if body.is_in_group("Map"):
+		# Calculates reverse direction from collision
+		stun_direction = -(body.global_position - global_position).normalized()
+		stun()
 
 
 func _on_stun_timer_timeout() -> void:
