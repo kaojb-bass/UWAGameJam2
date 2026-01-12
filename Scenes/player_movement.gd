@@ -10,7 +10,7 @@ func _ready() -> void:
 @export var movement_speed : float = 500
 var character_direction : Vector2
 
-@export var stun_duration : int = 0.5
+@export var stun_duration : float = 0.5
 @export var stun_velocity : float = 50.0
 var is_stunned : bool = false
 var stun_direction : Vector2
@@ -27,7 +27,7 @@ func stun() -> void:
 	stun_timer.start()
 	animated_sprite.play("stun")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_stunned:
 		velocity = stun_direction * stun_velocity
 		move_and_slide()

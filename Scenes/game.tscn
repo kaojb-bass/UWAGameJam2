@@ -18,3 +18,5 @@ zoom = Vector2(5, 5)
 
 [node name="NPC" parent="." instance=ExtResource("3_wrm1d")]
 position = Vector2(9, 42)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
