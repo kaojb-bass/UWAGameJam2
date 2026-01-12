@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d04dw73armee0"]
+[gd_scene load_steps=10 format=3 uid="uid://d04dw73armee0"]
 
 [ext_resource type="Texture2D" uid="uid://lsdnmmqm5pis" path="res://Assets/npc walk.png" id="1_acqhf"]
 
@@ -11,10 +11,6 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxsvc"]
 atlas = ExtResource("1_acqhf")
 region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6unj"]
-atlas = ExtResource("1_acqhf")
-region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1ryf"]
 atlas = ExtResource("1_acqhf")
@@ -42,9 +38,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_xxsvc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g6unj")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_h1ryf")
 }, {
 "duration": 1.0,
@@ -57,7 +50,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_2xkex")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 8.0
 }]
 
@@ -70,5 +63,7 @@ shape = SubResource("RectangleShape2D_b0k6i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_a6nw3")
-autoplay = "default"
-frame_progress = 0.38098767
+animation = &"walk"
+autoplay = "walk"
+frame = 4
+frame_progress = 0.8147621
