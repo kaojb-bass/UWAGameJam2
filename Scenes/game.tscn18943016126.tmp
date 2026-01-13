@@ -168,6 +168,7 @@ texture = ExtResource("1_qxrlw")
 [node name="Background" type="TileMapLayer" parent="Map"]
 
 [node name="MainLayer" type="TileMapLayer" parent="Map"]
+tile_map_data = PackedByteArray(0, 0, 252, 255, 254, 255, 1, 0, 5, 0, 7, 0, 0, 0)
 tile_set = SubResource("TileSet_3dryh")
 
 [node name="Frontlayer" type="TileMapLayer" parent="Map"]
@@ -184,3 +185,12 @@ position = Vector2(9, 42)
 
 [node name="Car" parent="." groups=["vehicle"] instance=ExtResource("5_wowpa")]
 position = Vector2(162, -44)
+
+[node name="Car2" parent="." groups=["vehicle"] instance=ExtResource("5_wowpa")]
+position = Vector2(162, -44)
+
+[node name="CharacterBody2D" parent="Car2" index="0"]
+position = Vector2(-325, 0)
+script = null
+
+[editable path="Car2"]

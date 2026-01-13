@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://bv7ayw83fj8f0"]
+
+[ext_resource type="Script" uid="uid://cjq7f18cl5kri" path="res://Scenes/car.gd" id="1_1sfmx"]
+[ext_resource type="Texture2D" uid="uid://bnyfdw0v1t40f" path="res://Assets/tile_mapv3.png" id="2_1sfmx"]
+[ext_resource type="Texture2D" uid="uid://lsdnmmqm5pis" path="res://Assets/npc walk.png" id="2_uoj53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acqhf"]
+atlas = ExtResource("2_uoj53")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxsvc"]
+atlas = ExtResource("2_uoj53")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1ryf"]
+atlas = ExtResource("2_uoj53")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ig1v"]
+atlas = ExtResource("2_uoj53")
+region = Rect2(640, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6atyd"]
+atlas = ExtResource("2_uoj53")
+region = Rect2(800, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xkex"]
+atlas = ExtResource("2_uoj53")
+region = Rect2(960, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06lh1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acqhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxsvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ryf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ig1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6atyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xkex")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k61xc"]
+size = Vector2(52, 12)
+
+[node name="Car" type="Node2D"]
+
+[node name="Car" type="CharacterBody2D" parent="." groups=["NPC", "vehicle"]]
+collision_layer = 4
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_1sfmx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Car"]
+texture = ExtResource("2_1sfmx")
+vframes = 3
+region_enabled = true
+region_rect = Rect2(64, 128, 64, 96)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Car"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_06lh1")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_k61xc")
+
+[node name="RayCast2D" type="RayCast2D" parent="Car"]
+target_position = Vector2(-77, 0)
+collision_mask = 6
+
+[node name="StopTimer" type="Timer" parent="Car"]
+one_shot = true
+
+[connection signal="timeout" from="Car/StopTimer" to="Car" method="_on_stop_timer_timeout"]

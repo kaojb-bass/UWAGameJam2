@@ -2,12 +2,13 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var stun_timer = $StunTimer
+@onready var tile_map = $"../Map/MainLayer"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-@export var movement_speed : float = 500
+@export var movement_speed : float = 150
 var character_direction : Vector2
 
 @export var stun_duration : float = 0.5
@@ -48,6 +49,12 @@ func _physics_process(_delta: float) -> void:
 		animated_sprite.play("idle")
 		
 	move_and_slide()
+	var collision = move_and_slide()
+	if collision:
+		var collider = get_last_slide_collision().get_collider()
+		if collider == tile_map:
+			stun_direction = -(collider.global_position - global_position).normalized()
+			stun()
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -55,10 +62,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		# Calculates reverse direction from collision
 		stun_direction = -(body.global_position - global_position).normalized()
 		stun()
-	if body.is_in_group("Map"):
-		# Calculates reverse direction from collision
-		stun_direction = -(body.global_position - global_position).normalized()
-		stun()
+		
 
 
 func _on_stun_timer_timeout() -> void:

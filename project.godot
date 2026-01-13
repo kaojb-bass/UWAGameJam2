@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scenes/game_manager.tscn"
 
-[global_group]
-
-Map=""
-
 [input]
 
 Up={
