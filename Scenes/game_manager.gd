@@ -3,13 +3,12 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	run_timer.wait_time = 5
+	run_timer.wait_time = 30
 	# Set to 5 seconds for testing purposes
 	# TODO: Set it back to 30 seconds after testing!
 	
 	run_timer.one_shot = true
 	run_timer.start()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

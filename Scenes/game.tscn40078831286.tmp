@@ -328,4 +328,3 @@ position = Vector2(-75, -89)
 
 [node name="VehicleSpawner" parent="." instance=ExtResource("6_i6g32")]
 position = Vector2(108, -52)
-type = 3
