@@ -232,7 +232,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k61xc"]
-size = Vector2(47, 11)
+size = Vector2(20, 42)
 
 [node name="Car" type="CharacterBody2D" groups=["NPC", "vehicle"]]
 collision_layer = 4
@@ -248,7 +248,7 @@ libraries = {
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_1sfmx")
 region_enabled = true
-region_rect = Rect2(64, 128, 64, 32)
+region_rect = Rect2(64, 160, 32, 64)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)
@@ -259,6 +259,7 @@ target_position = Vector2(0, 48)
 collision_mask = 6
 
 [node name="StopTimer" type="Timer" parent="."]
+wait_time = 0.8
 one_shot = true
 
 [node name="DeleteTimer" type="Timer" parent="."]

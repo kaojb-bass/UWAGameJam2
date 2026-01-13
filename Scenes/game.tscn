@@ -313,6 +313,7 @@ tile_map_data = PackedByteArray("AAD+////AQAEAAIAAAD9//7/AQAEAAIAAAD+//7/AQAEAAI
 tile_set = SubResource("TileSet_3dryh")
 
 [node name="FrontLayer" type="TileMapLayer" parent="Map"]
+visible = false
 tile_map_data = PackedByteArray("AAD7////AQACAAgAAAD8////AQADAAgAAAD4////AQACAAQAAAD5////AQADAAQAAAD9////AQAEAAgAAAD7//7/AQACAAcAAAD8//7/AQADAAcAAAD9//7/AQAEAAcAAAD2//7/AQACAAsAAAD2//3/AQACAAoAAAD2//z/AQACAAkAAAD2/wIAAQACAAUAAAD2/wMAAQACAAYAAAD3/wEAAQADAAYAAAD3/wAAAQADAAUAAAA=")
 tile_set = SubResource("TileSet_wowpa")
 
@@ -326,6 +327,9 @@ zoom = Vector2(5, 5)
 [node name="NPC" parent="." instance=ExtResource("3_wrm1d")]
 position = Vector2(-75, -89)
 
+[node name="VehicleSpawner2" parent="." instance=ExtResource("6_i6g32")]
+position = Vector2(-292, 196)
+type = 0
+
 [node name="VehicleSpawner" parent="." instance=ExtResource("6_i6g32")]
 position = Vector2(108, -52)
-type = 3

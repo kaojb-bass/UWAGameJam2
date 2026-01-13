@@ -5,6 +5,7 @@ extends Node2D
 @onready var roll = 0.0
 enum TYPE {UP, DOWN, LEFT, RIGHT}
 @export var type = TYPE.LEFT
+@onready var wait_timer = $Timer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,6 +15,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_timer_timeout() -> void:
+	wait_timer.wait_time = randf_range(1.8, 4)
 	roll = randf()
 	var vehicle_obj = car.instantiate()
 	if roll <= 0.8:
