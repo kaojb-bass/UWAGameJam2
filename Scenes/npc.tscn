@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d04dw73armee0"]
+[gd_scene load_steps=11 format=3 uid="uid://d04dw73armee0"]
 
 [ext_resource type="Texture2D" uid="uid://lsdnmmqm5pis" path="res://Assets/npc walk.png" id="1_acqhf"]
+[ext_resource type="Script" uid="uid://cf4i4ms4nw1fw" path="res://Scenes/npc.gd" id="1_xxsvc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0k6i"]
 
@@ -55,6 +56,7 @@ animations = [{
 }]
 
 [node name="NPC" type="Node2D"]
+script = ExtResource("1_xxsvc")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["NPC"]]
 collision_layer = 4

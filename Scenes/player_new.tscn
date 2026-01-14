@@ -1,70 +1,67 @@
-[gd_scene load_steps=21 format=3 uid="uid://cfxislu0imur8"]
+[gd_scene load_steps=22 format=3 uid="uid://67nt53rpp5wq"]
 
-[ext_resource type="Script" uid="uid://50ldfrr2qpim" path="res://Scenes/player_movement.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://cvsalm06ufcsr" path="res://Assets/idle.png" id="3_vgqql"]
-[ext_resource type="Texture2D" uid="uid://craohuarnmkw2" path="res://Assets/run cycle-Sheet.png" id="4_vgqql"]
-[ext_resource type="Texture2D" uid="uid://26blt4ifgpew" path="res://Assets/stun.png" id="5_fkybt"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
-radius = 7.071068
+[ext_resource type="Script" uid="uid://50ldfrr2qpim" path="res://Scenes/player_movement.gd" id="1_lv4l8"]
+[ext_resource type="Texture2D" uid="uid://cvsalm06ufcsr" path="res://Assets/idle.png" id="2_xgpek"]
+[ext_resource type="Texture2D" uid="uid://craohuarnmkw2" path="res://Assets/run cycle-Sheet.png" id="3_kujci"]
+[ext_resource type="Texture2D" uid="uid://26blt4ifgpew" path="res://Assets/stun.png" id="4_kr0wr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
-atlas = ExtResource("3_vgqql")
+atlas = ExtResource("2_xgpek")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
-atlas = ExtResource("3_vgqql")
+atlas = ExtResource("2_xgpek")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
-atlas = ExtResource("3_vgqql")
+atlas = ExtResource("2_xgpek")
 region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
-atlas = ExtResource("4_vgqql")
+atlas = ExtResource("3_kujci")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
-atlas = ExtResource("4_vgqql")
+atlas = ExtResource("3_kujci")
 region = Rect2(224, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
-atlas = ExtResource("4_vgqql")
+atlas = ExtResource("3_kujci")
 region = Rect2(384, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
-atlas = ExtResource("4_vgqql")
+atlas = ExtResource("3_kujci")
 region = Rect2(544, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
-atlas = ExtResource("4_vgqql")
+atlas = ExtResource("3_kujci")
 region = Rect2(704, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
-atlas = ExtResource("4_vgqql")
+atlas = ExtResource("3_kujci")
 region = Rect2(864, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
-atlas = ExtResource("4_vgqql")
+atlas = ExtResource("3_kujci")
 region = Rect2(1024, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
-atlas = ExtResource("4_vgqql")
+atlas = ExtResource("3_kujci")
 region = Rect2(1184, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
-atlas = ExtResource("5_fkybt")
+atlas = ExtResource("4_kr0wr")
 region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
-atlas = ExtResource("5_fkybt")
+atlas = ExtResource("4_kr0wr")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
-atlas = ExtResource("5_fkybt")
+atlas = ExtResource("4_kr0wr")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_vgqql"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_nqphc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -124,32 +121,37 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="player" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_oyvj0"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lv4l8"]
+radius = 9.055386
+
+[node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 motion_mode = 1
-up_direction = Vector2(0.26455313, -0.96437114)
-script = ExtResource("1_cvnsp")
-movement_speed = 80.0
-
-[node name="WallFloorCollisions" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 8)
-shape = SubResource("CircleShape2D_cvnsp")
+script = ExtResource("1_lv4l8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_vgqql")
-animation = &"stun"
+sprite_frames = SubResource("SpriteFrames_nqphc")
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.3785366
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 8)
-shape = SubResource("CircleShape2D_cvnsp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_oyvj0")
 
 [node name="StunTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_lv4l8")
+
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

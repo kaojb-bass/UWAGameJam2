@@ -232,7 +232,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k61xc"]
-size = Vector2(20, 42)
+size = Vector2(47, 11)
 
 [node name="Car" type="CharacterBody2D" groups=["NPC", "vehicle"]]
 collision_layer = 4
@@ -247,8 +247,9 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_1sfmx")
+flip_h = true
 region_enabled = true
-region_rect = Rect2(64, 160, 32, 64)
+region_rect = Rect2(64, 128, 64, 32)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)

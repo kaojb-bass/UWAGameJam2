@@ -3,12 +3,9 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var stun_timer = $StunTimer
 @onready var tile_map = $"../Map/MainLayer"
+@onready var roads = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-@export var movement_speed : float = 150
+@export var movement_speed : float = 80
 var character_direction : Vector2
 
 @export var stun_duration : float = 0.5
@@ -29,6 +26,9 @@ func stun() -> void:
 	animated_sprite.play("stun")
 
 func _physics_process(_delta: float) -> void:
+	var local_pos = tile_map.to_local(global_position)
+	var coords = tile_map.local_to_map(local_pos)
+	
 	if is_stunned:
 		velocity = stun_direction * stun_velocity
 		move_and_slide()
@@ -52,18 +52,21 @@ func _physics_process(_delta: float) -> void:
 	var collision = move_and_slide()
 	if collision:
 		var collider = get_last_slide_collision().get_collider()
-		if collider == tile_map:
-			stun_direction = -(collider.global_position - global_position).normalized()
-			stun()
 	
-
+	var tile = tile_map.get_cell_tile_data(coords)
+	if tile:
+		var data = tile.get_custom_data("Road")
+		roads = data
+		if roads:
+			movement_speed = 45
+		else:
+			movement_speed = 80
+	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("NPC"):
 		# Calculates reverse direction from collision
 		stun_direction = -(body.global_position - global_position).normalized()
 		stun()
-		
-
 
 func _on_stun_timer_timeout() -> void:
 	is_stunned = false

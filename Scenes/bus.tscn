@@ -207,6 +207,8 @@ tracks/3/keys = {
 "values": [Rect2(64, 240, 96, 48)]
 }
 
+[sub_resource type="Animation" id="Animation_he2g8"]
+
 [sub_resource type="Animation" id="Animation_u41r7"]
 resource_name = "Up"
 tracks/0/type = "value"
@@ -257,8 +259,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(28, 65)]
 }
-
-[sub_resource type="Animation" id="Animation_he2g8"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1sfmx"]
 _data = {
