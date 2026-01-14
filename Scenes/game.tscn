@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://dpdrqi22n35mn"]
+[gd_scene load_steps=11 format=4 uid="uid://dpdrqi22n35mn"]
 
 [ext_resource type="Script" uid="uid://rdp2ycwe8iwm" path="res://Scenes/main_layer.gd" id="2_i6g32"]
 [ext_resource type="Texture2D" uid="uid://bnyfdw0v1t40f" path="res://Assets/tile_mapv3.png" id="2_wowpa"]
 [ext_resource type="PackedScene" uid="uid://67nt53rpp5wq" path="res://Scenes/player_new.tscn" id="3_wowpa"]
 [ext_resource type="PackedScene" uid="uid://d04dw73armee0" path="res://Scenes/npc.tscn" id="3_wrm1d"]
+[ext_resource type="AudioStream" uid="uid://sj5u0h17dg2f" path="res://Assets/OST.wav" id="6_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://smqmt0qfox05" path="res://Scenes/vehicle_spawner.tscn" id="6_i6g32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wowpa"]
@@ -404,3 +405,7 @@ position = Vector2(262, 440)
 [node name="VehicleSpawner3" parent="." instance=ExtResource("6_i6g32")]
 position = Vector2(-1452, -19)
 type = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_1l0tm")
+autoplay = true
